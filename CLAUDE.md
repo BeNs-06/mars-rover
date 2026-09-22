@@ -41,3 +41,9 @@ This repo uses a custom two-phase design process encoded as skills in `.claude/s
 - `spec/` (`/spec <path-to-intent.md>`) turns an **accepted** intent (merged to `main`) into `intent/<feature>/spec.md`: numbered requirements (`EX-NN`) with scenarios, a proposed design, open reservations, and a generation-context section recording exactly which skill versions/commits were used. It never writes code or a build plan, and it never decides open questions on its own — it defers to the Product Owner and records their decisions with author/date/justification.
 
 **Important:** `intent/mars-rover-simulator/spec.md` describes a target that the current `mars_rover/` implementation does not yet match. The accepted spec calls for a *web* interface (not a CLI), an obstacle-based map using emoji symbols (🟩/🌳 and 🟫/🪨, freely mixed), and blocked moves that leave the rover in place and **continue** executing the remaining commands rather than raising and aborting. The present code is a bounded rectangular map with no obstacles, a CLI, and `OutOfBoundsError` that aborts the mission on the first illegal move. When working on this codebase, check whether a change should follow the existing code's current behavior or the newer accepted spec, and don't assume the two agree.
+
+## Erreurs récurrentes
+
+Lorsqu’une même erreur se répète deux fois, propose une instruction courte et précise pour l’éviter. Appuie-toi sur les erreurs observées et fais valider cette instruction avant de l’ajouter à CLAUDE.md.
+
+Si une instruction devient obsolète, propose sa correction ou son retrait et attends la validation avant de modifier le fichier.
